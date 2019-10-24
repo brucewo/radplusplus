@@ -13,7 +13,7 @@ import radplusplus
 import json
 from erpnext.stock.doctype.stock_entry.stock_entry import get_additional_costs
 from erpnext.manufacturing.doctype.bom.bom import get_bom_items_as_dict
-from erpnext.manufacturing.doctype.production_order.production_order import check_if_scrap_warehouse_mandatory
+from erpnext.manufacturing.doctype.work_order.work_order import check_if_scrap_warehouse_mandatory
 from frappe.utils import flt, get_datetime, getdate, date_diff, cint, nowdate
 from frappe.model.mapper import get_mapped_doc
 from erpnext.stock.utils import get_incoming_rate
@@ -23,7 +23,7 @@ print_debug = False
 		
 def update_status(self, status=None):
 	if print_debug: frappe.logger().debug("---radplusplus.manufacturing_controllers.update_status---")
-	'''Update status of production order if unknown'''
+	'''Update status of work order if unknown'''
 	if not status:
 		status = self.get_status(status)
 		
