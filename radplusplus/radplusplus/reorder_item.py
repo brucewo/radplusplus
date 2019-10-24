@@ -29,7 +29,7 @@ def _reorder_item():
 	production_order_items_to_consider = frappe.db.sql_list("""select *, po.source_warehouse as warehouse,
 		po.company as company, i.default_material_request_type as material_request_type,
 		i.default_supplier as supplier
-		from `tabProduction Order Item` poi inner join `tabProduction Order` po on poi.parent=po.name
+		from `tabWork Order Item` poi inner join `tabWork Order` po on poi.parent=po.name
 		inner join `tabItem` i on poi.item_code=i.name
 		where poi.direct=1 and po.docstatus=1 
 		""")
